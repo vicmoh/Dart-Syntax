@@ -27,7 +27,7 @@ void main(){
 
   //final and const
   //final var can be set only onece
-  //const var is a compil-time constant
+  //const var is a compile-time constant
   final testingFinal = "bob";
   // testingFinal = "bobby";// error which works as intended
   final String nickname = "bobby";
@@ -176,6 +176,68 @@ void main(){
   void enableFlagsDefaultParam({bool bold = false, bool hidden = false}) {
     // ...
   }
+
+  // you can pass function as param like javascript
+  void printElement(int element) {
+    print(element);
+  }
+  var list = [1, 2, 3];
+  // Pass printElement as a parameter.
+  list.forEach(printElement);
+  // you can also assign func to a var
+  var loudify = (msg) => '!!! ${msg.toUpperCase()} !!!';//aka anonymoues func or lambda
+  var loudify2 = (msg){return '!!! ${msg.toUpperCase()} !!!';};//aka anonymoues func or lambda
+  void testFunc(msg){
+    return '!!! ${msg.toUpperCase()} !!!';
+  }
+  var loudify3 = testFunc;
+  print(loudify("hi"));
+  print(loudify2("hi2"));
+  print(loudify3("hi3"));
+  // all func return a val if not specified it return null
+  void testFuncReturn(){};
+  if(testFuncReturn() == null){
+    print("func returned null");
+  }
+
+  //pretty much the same thing as other language
+  var a, b;
+  a = 0;
+  b = ++a; // Increment a before b gets its value.
+  assert(a == b); // 1 == 1
+  a = 0;
+  b = a++; // Increment a AFTER b gets its value.
+  assert(a != b); // 1 != 0
+  a = 0;
+  b = --a; // Decrement a before b gets its value.
+  assert(a == b); // -1 == -1
+  a = 0;
+  b = a--; // Decrement a AFTER b gets its value.
+  assert(a != b); // -1 != 0
+  
+  /*
+  as	Typecast
+  is	True if the object has the specified type
+  is!	False if the object has the specified type
+  */
+
+  var assign1; var assign2;
+  // Assign value to a
+  assign1 = 1;
+  // Assign value to b if b is null; otherwise, b stays the same
+  assign2 ??= 2;
+
+  //conditional expressions similar to swift
+  bool isPublic = true;
+  var visibility = isPublic ? 'public' : 'private';
+  print(visibility);
+  // also work for test null
+  String playerName({String name}) => name ?? 'Guest';
+  print(playerName(name: "vic"));
+  print(playerName());
+
+  
+
 
 }//end main
 
