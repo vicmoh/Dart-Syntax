@@ -155,6 +155,28 @@ void main(){
   var isNobleOrNot = isNoble(2);
   print("isNoble() = $isNobleOrNot");
 
+  // optional param,
+  /// Sets the bold and hidden flags ...
+  void enableFlags({bool bold, bool hidden}) {
+    // ...
+  }
+  //enableFlags(bold: true, hidden: false);//when calling
+
+  /*Optional positional parameters
+  Wrapping a set of function parameters
+  in [] marks them as optional positional parameters:*/
+  String say(String from, String msg, [String device]) {
+    var result = '$from says $msg';
+    if (device != null) {
+      result = '$result with a $device';
+    }
+    return result;
+  }
+  //the function can use = to define default values
+  void enableFlagsDefaultParam({bool bold = false, bool hidden = false}) {
+    // ...
+  }
+
 }//end main
 
 // you can create func without anythting
