@@ -235,11 +235,115 @@ void main(){
   String playerName({String name}) => name ?? 'Guest';
   print(playerName(name: "vic"));
   print(playerName());
+  // Very long version uses if-else statement.
+  String playerName2({String name}) {
+    if (name != null) {
+      return name;
+    } else {
+      return 'Guest2';
+    }//end if
+  }//end func
+  print(playerName2(name: "vic2"));
+  print(playerName2());
 
+  // there is cascade, can be usefull for quick code
+  /*
+  querySelector('#confirm') // Get an object.
+    ..text = 'Confirm' // Use its members.
+    ..classes.add('important')
+    ..onClick.listen((e) => window.alert('Confirmed!'));
+  */
+  //the same as:
+  /*
+  var button = querySelector('#confirm');
+  button.text = 'Confirm';
+  button.classes.add('important');
+  button.onClick.listen((e) => window.alert('Confirmed!'));
+  */
   
+  // you can use for in like javascript
+  var collection = [0, 1, 2];
+  for (var x in collection) {
+    print(x); // 0 1 2
+  }//end for
 
+  //Exceptions similar to java and javascript and other high lang
+  // example:
+  // throw new FormatException('Expected at least 1 section');
+  // there's catch as well: 
+  /*
+  try {
+    breedMoreLlamas();
+  } on OutOfLlamasException {
+    buyMoreLlamas();
+  }
+  */
+  /*
+  try {
+  breedMoreLlamas();
+  } on OutOfLlamasException {
+    // A specific exception
+    buyMoreLlamas();
+  } on Exception catch (e) {
+    // Anything else that is an exception
+    print('Unknown exception: $e');
+  } catch (e) {
+    // No specified type, handles all
+    print('Something really unknown: $e');
+  }
+  */
 
+  //To ensure that some code runs whether or not 
+  //an exception is thrown, you can use finally like in java
+  // try {
+  //   breedMoreLlamas();
+  // } finally {
+  //   // Always clean up, even if an exception is thrown.
+  //   cleanLlamaStalls();
+  // }
+
+  //classes
+  var testClass = new Point(5);
+  var testClass2 = new Point.secondConstructor();
+  testClass.method();// should print return 10
+  testClass2.method();// should print 0
+
+  // inheritance
+  var emp = new Employee.fromJson({});
 }//end main
+
+// dec class, class can not be nested
+class Point {
+    num x;//instance var, init null
+    //constructor
+    Point(num x){
+      this.x = x + x;
+    }//end
+    // "named constractor if using multiple classes"
+    // Named constructor
+    Point.secondConstructor() {
+      this.x = 0;
+    }//end second construtor
+    //methos like any other object-oriented
+    void method(){
+      print("method() called x = ${this.x}");
+    }//end func
+}//end class
+
+// inheritance
+class Person {
+  String firstName;
+  Person.fromJson(Map data) {
+    print('in Person');
+  }//end construtor
+}//end class
+class Employee extends Person {
+  // Person does not have a default constructor;
+  // you must call super.fromJson(data).
+  Employee.fromJson(Map data) : super.fromJson(data) {//importanat!!
+    print('in Employee');
+  }//end constructor
+}// end person
 
 // you can create func without anythting
 printInteger(int number){
