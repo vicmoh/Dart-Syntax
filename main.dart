@@ -187,7 +187,7 @@ void main(){
   // you can also assign func to a var
   var loudify = (msg) => '!!! ${msg.toUpperCase()} !!!';//aka anonymoues func or lambda
   var loudify2 = (msg){return '!!! ${msg.toUpperCase()} !!!';};//aka anonymoues func or lambda
-  void testFunc(msg){
+  String testFunc(msg){
     return '!!! ${msg.toUpperCase()} !!!';
   }
   var loudify3 = testFunc;
@@ -195,7 +195,7 @@ void main(){
   print(loudify2("hi2"));
   print(loudify3("hi3"));
   // all func return a val if not specified it return null
-  void testFuncReturn(){};
+  testFuncReturn(){};
   if(testFuncReturn() == null){
     print("func returned null");
   }
@@ -350,16 +350,16 @@ printInteger(int number){
   print('the number is $number');
 }//end func
 
-// basic html
-void getSum(MouseEvent event){
-  // // select query
-  // var firstQuery = querySelector("#first");
-  // //convert input element from hteml
-  // var test = (firstQuery as InputElement).value;
-  // //convert to int
-  // int num1 = int.parse((firstQuery as InputElement).value);
-  // int num2 = int.parse((firstQuery as InputElement).value);
-  // // convert sum to string
-  // var sum = (num1 + num2).toString();
-  // querySelector("#output").text = "$num2 + $num2 = $sum";
-}//end func
+// // basic html
+// void getSum(MouseEvent event){
+//   // select query
+//   var firstQuery = querySelector("#first");
+//   //convert input element from hteml
+//   var test = (firstQuery as InputElement).value;
+//   //convert to int
+//   int num1 = int.parse((firstQuery as InputElement).value);
+//   int num2 = int.parse((firstQuery as InputElement).value);
+//   // convert sum to string
+//   var sum = (num1 + num2).toString();
+//   querySelector("#output").text = "$num2 + $num2 = $sum";
+// }//end func
